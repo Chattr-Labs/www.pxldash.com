@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PxlDash</title>
+  <meta name="description" content="PxlDash drives a 128×64 LED panel on your wall: your flights, your teams and your weather, one thing at a time.">
+  <meta name="theme-color" content="#0c0a09">
+  <meta property="og:title" content="PxlDash">
+  <meta property="og:description" content="Your wall, lit by what's happening now.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/site.js" defer></script>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-row">
+      <a class="brand" href="#top" aria-label="PxlDash home">
+        <img src="favicon.svg" alt="" width="28" height="28">
+        <span>PxlDash</span>
+      </a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="#flights">Flights</a>
+        <a href="#sports">Sports</a>
+        <a href="#modules">Modules</a>
+        <a href="#how">How it works</a>
+      </nav>
+      <a class="btn btn-ghost" href="https://pxldash.schuetzler.net">Sign in</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero ─────────────────────────────────────────────── -->
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <p class="kicker">128 × 64 RGB LED · on your wall</p>
+        <h1>Your wall, lit by what's happening now.</h1>
+        <p class="lede">
+          PxlDash drives a small LED panel that hangs like a picture and shows one
+          thing at a time: the flight you're waiting on, the match you're following,
+          or the weather when nothing else is live.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#flights">See the boards</a>
+          <a class="btn btn-ghost" href="#how">How it works</a>
+        </div>
+      </div>
+
+      <figure class="panel panel-hero" data-rotate>
+        <div class="bezel"><canvas aria-hidden="true"></canvas></div>
+        <figcaption class="panel-meta">
+          <span class="panel-label" aria-live="polite">FLIGHTS · TAXIING</span>
+          <span class="pills" aria-hidden="true"></span>
+        </figcaption>
+        <script type="application/json">
+          [
+            {"src": "assets/boards/flights_taxiing.png", "label": "FLIGHTS · TAXIING"},
+            {"src": "assets/boards/wc_live_single.png", "label": "WORLD CUP · LIVE"},
+            {"src": "assets/boards/flights_layover.png", "label": "FLIGHTS · LAYOVER"},
+            {"src": "assets/boards/wc_goal.png", "label": "WORLD CUP · GOAL"},
+            {"src": "assets/boards/flights_overhead.png", "label": "FLIGHTS · OVERHEAD"},
+            {"src": "assets/boards/flights_idle.png", "label": "WEATHER · AMBIENT"}
+          ]
+        </script>
+      </figure>
+    </section>
+
+    <!-- One thing at a time ────────────────────────────────── -->
+    <section class="section wrap split">
+      <div>
+        <p class="kicker">One hero per panel</p>
+        <h2>One thing at a time, readable from across the room.</h2>
+        <p class="body">
+          Every board has a single hero — a score, a route, the time — with a little
+          support underneath. With several modules on, the wall becomes a queue, not
+          a grid. Whatever is happening right now goes first.
+        </p>
+      </div>
+      <ol class="bands">
+        <li>
+          <span class="band-name">TAKEOVER</span>
+          <span>A goal, a touchdown, a gate change. It owns the wall, then hands it back.</span>
+        </li>
+        <li>
+          <span class="band-name">LIVE</span>
+          <span>In progress, with a clock. Short dwell, fast refresh.</span>
+        </li>
+        <li>
+          <span class="band-name">UPCOMING</span>
+          <span>Countdowns and next-ups, on a slower cadence.</span>
+        </li>
+        <li>
+          <span class="band-name">AMBIENT</span>
+          <span>The resting state — the time and the weather when nothing else qualifies.</span>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Flights ───────────────────────────────────────────── -->
+    <section class="section wrap" id="flights">
+      <div class="section-head">
+        <p class="kicker"><span class="glyph" data-glyph="010111010" style="--mod: var(--mod-flights)"></span>Flights</p>
+        <h2>Your trip, from schedule to gate.</h2>
+        <p class="body">
+          Import a schedule from its calendar feed, or paste it in. The panel walks
+          each leg through its day — pending, pre-flight, taxiing, in the air, landed,
+          layover — with live position and the weather at each end. Between trips it
+          tells you what's flying over the house.
+        </p>
+      </div>
+      <div class="gallery gallery-4">
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/flights_trip_pending.png" role="img" aria-label="Next trip: SLC to ATL, departs in 4 hours"></canvas></div><figcaption class="panel-label">NEXT TRIP</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/flights_pre_flight.png" role="img" aria-label="Pre-flight: gate C12, departs in 45 minutes"></canvas></div><figcaption class="panel-label">PRE-FLIGHT</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/flights_taxiing.png" role="img" aria-label="Taxiing: out of gate 12 minutes"></canvas></div><figcaption class="panel-label">TAXIING</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/flights_in_flight.png" role="img" aria-label="In flight: SLC to ATL with a progress rail and ETA"></canvas></div><figcaption class="panel-label">IN FLIGHT</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/flights_post_flight.png" role="img" aria-label="Landed in ATL on time"></canvas></div><figcaption class="panel-label">LANDED</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/flights_layover.png" role="img" aria-label="Layover in Atlanta with local time, weather and next leg"></canvas></div><figcaption class="panel-label">LAYOVER</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/flights_overhead.png" role="img" aria-label="Overhead: an Airbus A321 from Colorado Springs to Salt Lake City"></canvas></div><figcaption class="panel-label">OVERHEAD</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/flights_idle.png" role="img" aria-label="Idle: the time, the date and the weather"></canvas></div><figcaption class="panel-label">IDLE</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- Sports ────────────────────────────────────────────── -->
+    <section class="section wrap" id="sports">
+      <div class="section-head">
+        <p class="kicker"><span class="glyph" data-glyph="101111010" style="--mod: var(--mod-cfb)"></span>Sports</p>
+        <h2>Your teams lead the wall.</h2>
+        <p class="body">
+          Live scores with the game clock, field position, and flags or team marks.
+          When someone scores, the panel plays the celebration on its own, then goes
+          back to the game. College football is on the wall today, alongside a World
+          Cup board for the whole house.
+        </p>
+      </div>
+      <div class="gallery gallery-4">
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/wc_upcoming.png" role="img" aria-label="Kickoff in 2 hours: USA v BEL, with the next two matches"></canvas></div><figcaption class="panel-label">UP NEXT</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/wc_live_single.png" role="img" aria-label="Live: USA 2, Belgium 1, 63rd minute"></canvas></div><figcaption class="panel-label">LIVE</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/wc_goal.png" role="img" aria-label="Goal: USA 1-0"></canvas></div><figcaption class="panel-label">GOAL</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/wc_shootout.png" role="img" aria-label="Penalty shootout: Spain v Portugal, 3-2 on penalties"></canvas></div><figcaption class="panel-label">SHOOTOUT</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- Modules ───────────────────────────────────────────── -->
+    <section class="section wrap" id="modules">
+      <div class="section-head">
+        <p class="kicker">Modules</p>
+        <h2>Pick what the wall shows.</h2>
+        <p class="body">
+          Each module brings a name, a 3×3 pixel mark and one colour. Turn on the
+          ones you want and drag them into order — panels pick up changes within a
+          minute.
+        </p>
+      </div>
+      <ul class="modules">
+        <li class="module" style="--mod: var(--mod-flights)">
+          <span class="glyph glyph-tile" data-glyph="010111010"></span>
+          <div><h3>Flights</h3><p>Trips, legs and live position from your calendar</p></div>
+          <span class="state">available</span>
+        </li>
+        <li class="module" style="--mod: var(--mod-cfb)">
+          <span class="glyph glyph-tile" data-glyph="101111010"></span>
+          <div><h3>College football</h3><p>Your teams lead the wall</p></div>
+          <span class="state">available</span>
+        </li>
+        <li class="module" style="--mod: var(--mod-weather)">
+          <span class="glyph glyph-tile" data-glyph="010111111"></span>
+          <div><h3>Weather</h3><p>Fills the wall when nothing else is live</p></div>
+          <span class="state">available</span>
+        </li>
+        <li class="module soon" style="--mod: var(--mod-markets)">
+          <span class="glyph glyph-tile" data-glyph="001010100"></span>
+          <div><h3>Markets</h3><p>Indices and a watchlist</p></div>
+          <span class="state">soon</span>
+        </li>
+        <li class="module soon" style="--mod: var(--mod-transit)">
+          <span class="glyph glyph-tile" data-glyph="111010010"></span>
+          <div><h3>Transit</h3><p>Next departures from your stops</p></div>
+          <span class="state">soon</span>
+        </li>
+        <li class="module soon" style="--mod: var(--mod-calendar)">
+          <span class="glyph glyph-tile" data-glyph="111101111"></span>
+          <div><h3>Calendar</h3><p>What's next, from any iCal feed</p></div>
+          <span class="state">soon</span>
+        </li>
+        <li class="module soon" style="--mod: var(--mod-home)">
+          <span class="glyph glyph-tile" data-glyph="010111101"></span>
+          <div><h3>Home</h3><p>Sensors and switches</p></div>
+          <span class="state">soon</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- How it works ──────────────────────────────────────── -->
+    <section class="section wrap" id="how">
+      <div class="section-head">
+        <p class="kicker">How it works</p>
+        <h2>The server decides. The panel draws.</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <span class="step-num">01</span>
+          <h3>Data comes in</h3>
+          <p>Flight status, scores and weather are fetched on the server, on a cadence
+            that speeds up when something's live — about every 20 seconds during a
+            match, slower when nothing's on.</p>
+        </li>
+        <li>
+          <span class="step-num">02</span>
+          <h3>A scene goes out</h3>
+          <p>Each board is laid out as a handful of widgets — text, a score, a progress
+            rail, a clock — and sent to the panel as finished pixels or as a scene it
+            draws and animates itself.</p>
+        </li>
+        <li>
+          <span class="step-num">03</span>
+          <h3>Nothing to reflash</h3>
+          <p>New boards and design changes ship from the website. When the firmware
+            does need an update, the panel fetches it over the air.</p>
+        </li>
+      </ol>
+      <dl class="spec">
+        <div><dt>CONTROLLER</dt><dd>Adafruit MatrixPortal S3</dd></div>
+        <div><dt>PANEL</dt><dd>128 × 64 HUB75 RGB</dd></div>
+        <div><dt>PAIRING</dt><dd>A code on the panel, entered once</dd></div>
+        <div><dt>UPDATES</dt><dd>Over the air</dd></div>
+      </dl>
+    </section>
+
+    <!-- Closing ───────────────────────────────────────────── -->
+    <section class="section wrap closing">
+      <h2>Ready when your panel is.</h2>
+      <p class="body">
+        Sign in with your email and plug the panel in. It shows a short code to
+        pair with your account, and from then on it keeps itself up to date.
+      </p>
+      <a class="btn btn-primary" href="https://pxldash.schuetzler.net">Sign in</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-row">
+      <span class="brand brand-sm"><img src="favicon.svg" alt="" width="20" height="20"><span>PxlDash</span></span>
+      <span class="faint">Light on a dark grid.</span>
+    </div>
+  </footer>
+</body>
+</html>
