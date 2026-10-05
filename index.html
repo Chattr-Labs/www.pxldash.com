@@ -25,7 +25,6 @@
         <a href="#flights">Flights</a>
         <a href="#sports">Sports</a>
         <a href="#modules">Modules</a>
-        <a href="#how">How it works</a>
       </nav>
       <a class="btn btn-ghost" href="https://app.pxldash.com">Sign in</a>
     </div>
@@ -39,12 +38,11 @@
         <h1>Your wall, lit by what's happening now.</h1>
         <p class="lede">
           PxlDash drives a small LED panel that hangs like a picture and shows one
-          thing at a time: the flight you're waiting on, the match you're following,
-          or the weather when nothing else is live.
+          thing at a time: the flight you're waiting on, the game you're following,
+          or the weather.
         </p>
         <div class="actions">
           <a class="btn btn-primary" href="#flights">See the boards</a>
-          <a class="btn btn-ghost" href="#how">How it works</a>
         </div>
       </div>
 
@@ -67,47 +65,15 @@
       </figure>
     </section>
 
-    <!-- One thing at a time ────────────────────────────────── -->
-    <section class="section wrap split">
-      <div>
-        <p class="kicker">One hero per panel</p>
-        <h2>One thing at a time, readable from across the room.</h2>
-        <p class="body">
-          Every board has a single hero — a score, a route, the time — with a little
-          support underneath. With several modules on, the wall becomes a queue, not
-          a grid. Whatever is happening right now goes first.
-        </p>
-      </div>
-      <ol class="bands">
-        <li>
-          <span class="band-name">TAKEOVER</span>
-          <span>A goal, a touchdown, a gate change. It owns the wall, then hands it back.</span>
-        </li>
-        <li>
-          <span class="band-name">LIVE</span>
-          <span>In progress, with a clock. Short dwell, fast refresh.</span>
-        </li>
-        <li>
-          <span class="band-name">UPCOMING</span>
-          <span>Countdowns and next-ups, on a slower cadence.</span>
-        </li>
-        <li>
-          <span class="band-name">AMBIENT</span>
-          <span>The resting state — the time and the weather when nothing else qualifies.</span>
-        </li>
-      </ol>
-    </section>
-
     <!-- Flights ───────────────────────────────────────────── -->
     <section class="section wrap" id="flights">
       <div class="section-head">
         <p class="kicker"><span class="glyph" data-glyph="010111010" style="--mod: var(--mod-flights)"></span>Flights</p>
         <h2>Your trip, from schedule to gate.</h2>
         <p class="body">
-          Import a schedule from its calendar feed, or paste it in. The panel walks
-          each leg through its day — pending, pre-flight, taxiing, in the air, landed,
-          layover — with live position and the weather at each end. Between trips it
-          tells you what's flying over the house.
+          Import a pilot's calendar feed, or track individual flights. PxlDash
+          provides updates pre-flight, during taxi, and during flight to keep the
+          whole house up to date. Between trips it shows what's flying over the house.
         </p>
       </div>
       <div class="gallery gallery-4">
@@ -128,10 +94,8 @@
         <p class="kicker"><span class="glyph" data-glyph="101111010" style="--mod: var(--mod-cfb)"></span>Sports</p>
         <h2>Your teams lead the wall.</h2>
         <p class="body">
-          Live scores with the game clock, field position, and flags or team marks.
-          When someone scores, the panel plays the celebration on its own, then goes
-          back to the game. College football is on the wall today, alongside a World
-          Cup board for the whole house.
+          Live scores with the game clock and field position. College football is
+          supported today, with more sports on the way.
         </p>
       </div>
       <div class="gallery gallery-4">
@@ -148,9 +112,8 @@
         <p class="kicker">Modules</p>
         <h2>Pick what the wall shows.</h2>
         <p class="body">
-          Each module brings a name, a 3×3 pixel mark and one colour. Turn on the
-          ones you want and drag them into order — panels pick up changes within a
-          minute.
+          Choose the modules that you want to display on the board — set your
+          favorite teams, track flights, or just show the weather.
         </p>
       </div>
       <ul class="modules">
@@ -166,7 +129,7 @@
         </li>
         <li class="module" style="--mod: var(--mod-weather)">
           <span class="glyph glyph-tile" data-glyph="010111111"></span>
-          <div><h3>Weather</h3><p>Fills the wall when nothing else is live</p></div>
+          <div><h3>Weather</h3><p>The time and the current weather</p></div>
           <span class="state">available</span>
         </li>
         <li class="module soon" style="--mod: var(--mod-markets)">
@@ -190,42 +153,6 @@
           <span class="state">soon</span>
         </li>
       </ul>
-    </section>
-
-    <!-- How it works ──────────────────────────────────────── -->
-    <section class="section wrap" id="how">
-      <div class="section-head">
-        <p class="kicker">How it works</p>
-        <h2>The server decides. The panel draws.</h2>
-      </div>
-      <ol class="steps">
-        <li>
-          <span class="step-num">01</span>
-          <h3>Data comes in</h3>
-          <p>Flight status, scores and weather are fetched on the server, on a cadence
-            that speeds up when something's live — about every 20 seconds during a
-            match, slower when nothing's on.</p>
-        </li>
-        <li>
-          <span class="step-num">02</span>
-          <h3>A scene goes out</h3>
-          <p>Each board is laid out as a handful of widgets — text, a score, a progress
-            rail, a clock — and sent to the panel as finished pixels or as a scene it
-            draws and animates itself.</p>
-        </li>
-        <li>
-          <span class="step-num">03</span>
-          <h3>Nothing to reflash</h3>
-          <p>New boards and design changes ship from the website. When the firmware
-            does need an update, the panel fetches it over the air.</p>
-        </li>
-      </ol>
-      <dl class="spec">
-        <div><dt>CONTROLLER</dt><dd>Adafruit MatrixPortal S3</dd></div>
-        <div><dt>PANEL</dt><dd>128 × 64 HUB75 RGB</dd></div>
-        <div><dt>PAIRING</dt><dd>A code on the panel, entered once</dd></div>
-        <div><dt>UPDATES</dt><dd>Over the air</dd></div>
-      </dl>
     </section>
 
     <!-- Closing ───────────────────────────────────────────── -->

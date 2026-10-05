@@ -476,63 +476,6 @@ h3 {
   gap: 16px;
 }
 
-.split {
-  align-items: start;
-}
-
-.split > div {
-  display: grid;
-  gap: 16px;
-}
-
-@media (min-width: 900px) {
-  .split {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 64px;
-  }
-}
-
-/* Priority bands */
-.bands {
-  display: grid;
-  border: 1px solid var(--border);
-  border-radius: var(--r-card);
-  background: var(--surface);
-  overflow: hidden;
-}
-
-.bands li {
-  display: grid;
-  grid-template-columns: 112px 1fr;
-  gap: 16px;
-  padding: 18px 22px;
-  color: var(--muted);
-  font-size: 15px;
-}
-
-.bands li + li {
-  border-top: 1px solid var(--border);
-}
-
-.band-name {
-  font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  color: var(--fg);
-  padding-top: 2px;
-}
-
-.bands li:first-child .band-name {
-  color: var(--amber);
-}
-
-@media (max-width: 480px) {
-  .bands li {
-    grid-template-columns: 1fr;
-    gap: 4px;
-  }
-}
-
 /* Galleries */
 .gallery {
   display: grid;
@@ -634,71 +577,6 @@ h3 {
 
 .module.soon .state {
   color: var(--faint);
-}
-
-/* ── how it works ─────────────────────────────────────── */
-
-.steps {
-  display: grid;
-  gap: 12px;
-  grid-template-columns: minmax(0, 1fr);
-}
-
-@media (min-width: 860px) {
-  .steps {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-.steps li {
-  display: grid;
-  align-content: start;
-  gap: 10px;
-  padding: 22px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--r-card);
-}
-
-.steps p {
-  color: var(--muted);
-  font-size: 15px;
-}
-
-.step-num {
-  font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  color: var(--amber);
-}
-
-.spec {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-  padding-top: 8px;
-}
-
-@media (min-width: 860px) {
-  .spec {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
-.spec div {
-  display: grid;
-  gap: 4px;
-}
-
-.spec dt {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.22em;
-  color: var(--faint);
-}
-
-.spec dd {
-  font-size: 15px;
 }
 
 /* ── closing + footer ─────────────────────────────────── */
