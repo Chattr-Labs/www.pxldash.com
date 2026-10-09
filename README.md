@@ -24,7 +24,8 @@ python3 -m http.server 8088 --bind 0.0.0.0
 
 The PNGs are 1:1 decodes of the RGB565 frames pxldash sends to the panel. To
 regenerate them, render the fixtures in pxldash (`Pxldash.Matrix.to_rgb565/2` for
-flights, `Pxldash.Matrix.scene_to_rgb565/2` for the football and soccer scenes),
+flights, `Pxldash.Matrix.scene_to_rgb565/2` for the football and soccer scenes, and
+for `PxldashWeb.CountdownFixtures.board/1` wrapped in `Pxldash.Scene.new/1`),
 take the first 16384 bytes of each, and decode little-endian RGB565 to a
 128×64 PNG.
 

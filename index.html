@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PxlDash</title>
-  <meta name="description" content="PxlDash drives a 128×64 LED panel on your wall: your flights, your teams and your weather, one thing at a time.">
+  <meta name="description" content="PxlDash drives a 128×64 LED panel on your wall: your flights, your teams, your countdowns and your weather, one thing at a time.">
   <meta name="theme-color" content="#0c0a09">
   <meta property="og:title" content="PxlDash">
   <meta property="og:description" content="Your wall, lit by what's happening now.">
@@ -24,6 +24,7 @@
       <nav class="nav-links" aria-label="Sections">
         <a href="#flights">Flights</a>
         <a href="#sports">Sports</a>
+        <a href="#countdowns">Countdowns</a>
         <a href="#modules">Modules</a>
       </nav>
       <a class="btn btn-ghost" href="https://app.pxldash.com">Sign in</a>
@@ -39,7 +40,7 @@
         <p class="lede">
           PxlDash drives a small LED panel that hangs like a picture and shows one
           thing at a time: the flight you're waiting on, the game you're following,
-          or the weather.
+          the days until a birthday, or the weather.
         </p>
         <div class="actions">
           <a class="btn btn-primary" href="#flights">See the boards</a>
@@ -56,9 +57,11 @@
           [
             {"src": "assets/boards/flights_taxiing.png", "label": "FLIGHTS · TAXIING"},
             {"src": "assets/boards/wc_live_single.png", "label": "WORLD CUP · LIVE"},
+            {"src": "assets/boards/countdown_pair_halloween.png", "label": "COUNTDOWN · 23 DAYS"},
             {"src": "assets/boards/flights_layover.png", "label": "FLIGHTS · LAYOVER"},
             {"src": "assets/boards/wc_goal.png", "label": "WORLD CUP · GOAL"},
             {"src": "assets/boards/flights_overhead.png", "label": "FLIGHTS · OVERHEAD"},
+            {"src": "assets/boards/countdown_bday_calm.png", "label": "COUNTDOWN · THE DAY"},
             {"src": "assets/boards/flights_idle.png", "label": "WEATHER · AMBIENT"}
           ]
         </script>
@@ -106,6 +109,30 @@
       </div>
     </section>
 
+    <!-- Countdowns ──────────────────────────────────────── -->
+    <section class="section wrap" id="countdowns">
+      <div class="section-head">
+        <p class="kicker"><span class="glyph" data-glyph="111010111" style="--mod: var(--mod-countdown)"></span>Countdowns</p>
+        <h2>Count down to the next big day.</h2>
+        <p class="body">
+          Name a date, pick a sprite or two, and the wall counts the days (or the
+          days and hours). Set a time and the last hour ticks down in minutes and
+          seconds. On the day it switches to your own message: a birthday, a
+          holiday, a graduation.
+        </p>
+      </div>
+      <div class="gallery gallery-4">
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/countdown_pair_halloween.png" role="img" aria-label="23 days until Halloween, between a jack-o'-lantern and a ghost"></canvas></div><figcaption class="panel-label">DAYS</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/countdown_hyrum.png" role="img" aria-label="12 days 4 hours until Hyrum's birthday, beside a red balloon"></canvas></div><figcaption class="panel-label">DAYS + HOURS</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/countdown_xmas_garland.png" role="img" aria-label="80 days until Christmas under a garland of lights"></canvas></div><figcaption class="panel-label">GARLAND</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/countdown_grandma.png" role="img" aria-label="145 days until Grandma and Grandpa's 50th anniversary, beside a heart"></canvas></div><figcaption class="panel-label">LONG NAMES</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/countdown_final_hour.png" role="img" aria-label="42 minutes 17 seconds until New Year, with a firework"></canvas></div><figcaption class="panel-label">FINAL HOUR</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/countdown_bday_calm.png" role="img" aria-label="Happy birthday Hyrum, framed by balloons"></canvas></div><figcaption class="panel-label">BIRTHDAY</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/countdown_halloween_finish.png" role="img" aria-label="Happy Halloween with bats, a moon, ghosts and pumpkins"></canvas></div><figcaption class="panel-label">HALLOWEEN</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/countdown_xmas_finish.png" role="img" aria-label="Merry Christmas! between strings of lights and ornaments"></canvas></div><figcaption class="panel-label">CHRISTMAS</figcaption></figure>
+      </div>
+    </section>
+
     <!-- Modules ───────────────────────────────────────────── -->
     <section class="section wrap" id="modules">
       <div class="section-head">
@@ -113,7 +140,8 @@
         <h2>Pick what the wall shows.</h2>
         <p class="body">
           Choose the modules that you want to display on the board — set your
-          favorite teams, track flights, or just show the weather.
+          favorite teams, track flights, count down to a birthday, or just show
+          the weather.
         </p>
       </div>
       <ul class="modules">
@@ -125,6 +153,11 @@
         <li class="module" style="--mod: var(--mod-cfb)">
           <span class="glyph glyph-tile" data-glyph="101111010"></span>
           <div><h3>College football</h3><p>Your teams lead the wall</p></div>
+          <span class="state">available</span>
+        </li>
+        <li class="module" style="--mod: var(--mod-countdown)">
+          <span class="glyph glyph-tile" data-glyph="111010111"></span>
+          <div><h3>Countdowns</h3><p>The days until birthdays and holidays</p></div>
           <span class="state">available</span>
         </li>
         <li class="module" style="--mod: var(--mod-weather)">
