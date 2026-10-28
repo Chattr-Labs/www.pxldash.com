@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PxlDash</title>
-  <meta name="description" content="PxlDash drives a 128×64 LED panel on your wall: your flights, your teams, your countdowns and your weather, one thing at a time.">
+  <meta name="description" content="PxlDash drives a 128×64 LED panel on your wall: your flights, your teams, your countdowns, your own messages and your weather, one thing at a time.">
   <meta name="theme-color" content="#0c0a09">
   <meta property="og:title" content="PxlDash">
   <meta property="og:description" content="Your wall, lit by what's happening now.">
@@ -25,6 +25,7 @@
         <a href="#flights">Flights</a>
         <a href="#sports">Sports</a>
         <a href="#countdowns">Countdowns</a>
+        <a href="#messages">Messages</a>
         <a href="#modules">Modules</a>
       </nav>
       <a class="btn btn-ghost" href="https://app.pxldash.com">Sign in</a>
@@ -56,12 +57,14 @@
         <script type="application/json">
           [
             {"src": "assets/boards/flights_taxiing.png", "label": "FLIGHTS · TAXIING"},
-            {"src": "assets/boards/wc_live_single.png", "label": "WORLD CUP · LIVE"},
+            {"src": "assets/boards/cfb_live.png", "label": "COLLEGE FOOTBALL · LIVE"},
             {"src": "assets/boards/countdown_pair_halloween.png", "label": "COUNTDOWN · 23 DAYS"},
             {"src": "assets/boards/flights_layover.png", "label": "FLIGHTS · LAYOVER"},
-            {"src": "assets/boards/wc_goal.png", "label": "WORLD CUP · GOAL"},
+            {"src": "assets/boards/nfl_live.png", "label": "NFL · LIVE"},
+            {"src": "assets/boards/custom_welcome_home.png", "label": "MESSAGE · WELCOME HOME"},
             {"src": "assets/boards/flights_overhead.png", "label": "FLIGHTS · OVERHEAD"},
             {"src": "assets/boards/countdown_bday_calm.png", "label": "COUNTDOWN · THE DAY"},
+            {"src": "assets/boards/anim_jack_o_lantern_grin.png", "label": "ANIMATION · JACK-O'-LANTERN"},
             {"src": "assets/boards/flights_idle.png", "label": "WEATHER · AMBIENT"}
           ]
         </script>
@@ -94,18 +97,23 @@
     <!-- Sports ────────────────────────────────────────────── -->
     <section class="section wrap" id="sports">
       <div class="section-head">
-        <p class="kicker"><span class="glyph" data-glyph="101111010" style="--mod: var(--mod-cfb)"></span>Sports</p>
+        <p class="kicker"><span class="glyph" data-glyph="101111010" style="--mod: var(--mod-cfb)"></span><span class="glyph" data-glyph="010101010" style="--mod: var(--mod-nfl)"></span>Sports</p>
         <h2>Your teams lead the wall.</h2>
         <p class="body">
-          Live scores with the game clock and field position. College football is
-          supported today, with more sports on the way.
+          Live scores with the game clock, down and distance, and field position.
+          Pick your college and NFL teams; when they're idle the wall shows their
+          next game, their standing, and the rest of the scoreboard.
         </p>
       </div>
       <div class="gallery gallery-4">
-        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/wc_upcoming.png" role="img" aria-label="Kickoff in 2 hours: USA v BEL, with the next two matches"></canvas></div><figcaption class="panel-label">UP NEXT</figcaption></figure>
-        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/wc_live_single.png" role="img" aria-label="Live: USA 2, Belgium 1, 63rd minute"></canvas></div><figcaption class="panel-label">LIVE</figcaption></figure>
-        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/wc_goal.png" role="img" aria-label="Goal: USA 1-0"></canvas></div><figcaption class="panel-label">GOAL</figcaption></figure>
-        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/wc_shootout.png" role="img" aria-label="Penalty shootout: Spain v Portugal, 3-2 on penalties"></canvas></div><figcaption class="panel-label">SHOOTOUT</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/cfb_live.png" role="img" aria-label="Live: BYU 21, Kansas State 14, third quarter 7:42, third and 7 at the KSU 43"></canvas></div><figcaption class="panel-label">CFB · LIVE</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/cfb_touchdown_reveal.png" role="img" aria-label="BYU scores: 28-14, extra point good"></canvas></div><figcaption class="panel-label">CFB · TOUCHDOWN</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/cfb_spotlight_ranked.png" role="img" aria-label="Texas Tech, ranked 11th, 5-1, at number 4 Utah Friday 7:30 PM"></canvas></div><figcaption class="panel-label">CFB · NEXT GAME</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/cfb_list.png" role="img" aria-label="Big 12 scoreboard: five games with scores and kickoff times"></canvas></div><figcaption class="panel-label">CFB · SCOREBOARD</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/nfl_live.png" role="img" aria-label="Week 7: Chicago 27, New England 14, third quarter 4:11, first and 15 at the CHI 30"></canvas></div><figcaption class="panel-label">NFL · LIVE</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/nfl_final_ot.png" role="img" aria-label="Final: Atlanta 23, Baltimore 30, Baltimore wins in overtime"></canvas></div><figcaption class="panel-label">NFL · FINAL</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/nfl_spotlight_standing.png" role="img" aria-label="Kansas City, first in the AFC West at 5-0, at Seattle Sunday 6:20 PM"></canvas></div><figcaption class="panel-label">NFL · STANDING</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/nfl_list.png" role="img" aria-label="AFC North scoreboard: three games in the third quarter, at half and final"></canvas></div><figcaption class="panel-label">NFL · DIVISION</figcaption></figure>
       </div>
     </section>
 
@@ -133,6 +141,44 @@
       </div>
     </section>
 
+    <!-- Messages ───────────────────────────────────────── -->
+    <section class="section wrap" id="messages">
+      <div class="section-head">
+        <p class="kicker"><span class="glyph" data-glyph="111111010" style="--mod: var(--mod-custom)"></span>Custom messages</p>
+        <h2>Put your own words on the wall.</h2>
+        <p class="body">
+          Place text, sprites and lines anywhere on the panel, pick a backdrop if
+          you want one, and switch the message on when it's time: a welcome home,
+          a game night, an anniversary.
+        </p>
+      </div>
+      <div class="gallery gallery-4">
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/custom_welcome_home.png" role="img" aria-label="Welcome home, Sam! between two balloons and confetti"></canvas></div><figcaption class="panel-label">WELCOME HOME</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/custom_game_night.png" role="img" aria-label="Game night, Friday 7:00, bring snacks, with two stars"></canvas></div><figcaption class="panel-label">GAME NIGHT</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/custom_good_luck.png" role="img" aria-label="Good luck, Ava! among stars"></canvas></div><figcaption class="panel-label">GOOD LUCK</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/custom_anniversary.png" role="img" aria-label="Happy 10th, Mom and Dad, framed by hearts"></canvas></div><figcaption class="panel-label">ANNIVERSARY</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- Animations ─────────────────────────────────────── -->
+    <section class="section wrap" id="animations">
+      <div class="section-head">
+        <p class="kicker"><span class="glyph" data-glyph="100110100" style="--mod: var(--mod-animations)"></span>Animations</p>
+        <h2>Something to watch when nothing's on.</h2>
+        <p class="body">
+          Pick a seasonal animation for the quiet hours. The jack-o'-lantern rests,
+          blinks, flickers, grins and stares, and the panel plays it on its own
+          clock, so it never sits still for long.
+        </p>
+      </div>
+      <div class="gallery gallery-4">
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/anim_jack_o_lantern_rest.png" role="img" aria-label="A jack-o'-lantern at rest"></canvas></div><figcaption class="panel-label">REST</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/anim_jack_o_lantern_blink.png" role="img" aria-label="The jack-o'-lantern blinking"></canvas></div><figcaption class="panel-label">BLINK</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/anim_jack_o_lantern_grin.png" role="img" aria-label="The jack-o'-lantern grinning wide"></canvas></div><figcaption class="panel-label">GRIN</figcaption></figure>
+        <figure class="panel"><div class="bezel"><canvas data-src="assets/boards/anim_jack_o_lantern_wide.png" role="img" aria-label="The jack-o'-lantern staring wide-eyed"></canvas></div><figcaption class="panel-label">STARE</figcaption></figure>
+      </div>
+    </section>
+
     <!-- Modules ───────────────────────────────────────────── -->
     <section class="section wrap" id="modules">
       <div class="section-head">
@@ -155,9 +201,24 @@
           <div><h3>College football</h3><p>Your teams lead the wall</p></div>
           <span class="state">available</span>
         </li>
+        <li class="module" style="--mod: var(--mod-nfl)">
+          <span class="glyph glyph-tile" data-glyph="010101010"></span>
+          <div><h3>NFL</h3><p>Your teams and your division</p></div>
+          <span class="state">available</span>
+        </li>
         <li class="module" style="--mod: var(--mod-countdown)">
           <span class="glyph glyph-tile" data-glyph="111010111"></span>
           <div><h3>Countdowns</h3><p>The days until birthdays and holidays</p></div>
+          <span class="state">available</span>
+        </li>
+        <li class="module" style="--mod: var(--mod-custom)">
+          <span class="glyph glyph-tile" data-glyph="111111010"></span>
+          <div><h3>Custom message</h3><p>Your own words and sprites, laid out freely</p></div>
+          <span class="state">available</span>
+        </li>
+        <li class="module" style="--mod: var(--mod-animations)">
+          <span class="glyph glyph-tile" data-glyph="100110100"></span>
+          <div><h3>Animations</h3><p>Seasonal art that moves on its own</p></div>
           <span class="state">available</span>
         </li>
         <li class="module" style="--mod: var(--mod-weather)">
