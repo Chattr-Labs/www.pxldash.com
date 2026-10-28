@@ -22,12 +22,24 @@ python3 -m http.server 8088 --bind 0.0.0.0
 
 ## Refreshing the board frames
 
-The PNGs are 1:1 decodes of the RGB565 frames pxldash sends to the panel. To
-regenerate them, render the fixtures in pxldash (`Pxldash.Matrix.to_rgb565/2` for
-flights, `Pxldash.Matrix.scene_to_rgb565/2` for the football and soccer scenes, and
-for `PxldashWeb.CountdownFixtures.board/1` wrapped in `Pxldash.Scene.new/1`),
-take the first 16384 bytes of each, and decode little-endian RGB565 to a
-128×64 PNG.
+The PNGs are 1:1 decodes of the RGB565 frames pxldash sends to the panel
+(first 16384 bytes, little-endian RGB565 → 128×64 PNG). With the pxldash dev
+server running on port 4010:
+
+- **Football:** `/preview/football/<state>/matrix.rgb565` (college football),
+  add `?league=nfl` for the NFL. States are in `PxldashWeb.FootballFixtures` /
+  `PxldashWeb.NflFixtures`.
+- **Countdowns:** `/preview/countdown/<state>/matrix.rgb565`, states from
+  `PxldashWeb.CountdownFixtures.all_states/0`.
+- **Flights:** `/preview/<state>/matrix.rgb565`.
+- **Animations:** no route; render each frame with
+  `Pxldash.Providers.Animations.board/1` on a catalog entry whose `frames` is
+  just that one sprite, then `Pxldash.Matrix.scene_to_rgb565/2` (`mode: :raw`).
+- **Custom messages:** no route; build a `%Pxldash.CustomMessages.Message{}`
+  in a `mix run` script and render `Pxldash.Providers.CustomMessage.board/1`
+  the same way. The samples here are made up, not from a real account.
+
+`tools/matrix_sim.py` in pxldash decodes a frame URL to a PNG.
 
 ## Deploy
 
